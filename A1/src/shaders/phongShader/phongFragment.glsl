@@ -102,6 +102,7 @@ float getShadowBias(float c, float filterRadiusUV){
 }
 //Edit End
 
+//Edit Start
 float useShadowMap(sampler2D shadowMap, vec4 shadowCoord, float biasC, float filterRadiusUV){
   float depth = unpack(texture2D(shadowMap, shadowCoord.xy));
   float cur_depth = shadowCoord.z;
@@ -113,7 +114,9 @@ float useShadowMap(sampler2D shadowMap, vec4 shadowCoord, float biasC, float fil
     return 1.0;
   }
 }
+//Edit End
 
+//Edit Start
 float findBlocker( sampler2D shadowMap,  vec2 uv, float zReceiver ) {
 	int blockerNum = 0;
   float blockDepth = 0.;
@@ -136,7 +139,9 @@ float findBlocker( sampler2D shadowMap,  vec2 uv, float zReceiver ) {
   else
     return blockDepth / float(blockerNum);
 }
+//Edit End
 
+//Edit Start
 float PCF(sampler2D shadowMap, vec4 coords, float biasC, float filterRadiusUV) {
   //uniformDiskSamples(coords.xy);
   poissonDiskSamples(coords.xy); //使用xy坐标作为随机种子生成
@@ -150,7 +155,9 @@ float PCF(sampler2D shadowMap, vec4 coords, float biasC, float filterRadiusUV) {
   }
   return 1.0 - visibility / float(NUM_SAMPLES);
 }
+//Edit End
 
+//Edit Start
 float PCSS(sampler2D shadowMap, vec4 coords, float biasC){
   float zReceiver = coords.z;
 
@@ -165,6 +172,7 @@ float PCSS(sampler2D shadowMap, vec4 coords, float biasC){
   // STEP 3: filtering
   return PCF(shadowMap, coords, biasC, filterRadiusUV);
 }
+//Edit End
 
 vec3 blinnPhong() {
   vec3 color = texture2D(uSampler, vTextureCoord).rgb;
@@ -213,4 +221,5 @@ void main(void) {
 
   gl_FragColor = vec4(phongColor * visibility, 1.0);
   //gl_FragColor = vec4(phongColor, 1.0);
+  //Edit End
 }
