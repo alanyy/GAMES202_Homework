@@ -6,7 +6,9 @@ class DirectionalLight {
         this.lightDir = lightDir;
         this.lightUp = lightUp;
 
-        this.fbo = new FBO(gl);
+        // Edit Start
+        this.fbo = new FBO(gl, 1);
+        // Edit End
         if (!this.fbo) {
             console.log("无法设置帧缓冲区对象");
             return;

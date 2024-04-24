@@ -193,7 +193,10 @@ class MeshRender {
 		gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
 		gl.viewport(0.0, 0.0, window.screen.width, window.screen.height);
 		if (fbo != null) {
-			gl_draw_buffers.drawBuffersWEBGL(fbo.attachments);
+			// Edit Start
+			// gl_draw_buffers.drawBuffersWEBGL(fbo.attachments);
+			gl.drawBuffers(fbo.attachments);
+			// Edit End
 		}
 		gl.useProgram(this.shader.program.glShaderProgram);
 
