@@ -10,7 +10,7 @@ class FBO{
             return null;
         }
 
-        function CreateAndBindColorTargetTexture(fbo, attachment) {
+        function CreateAndBindColorTargetTexture(fbo, attachment, width, height) {
             //创建纹理对象并设置其尺寸和参数
             var texture = gl.createTexture();
             if(!texture){
