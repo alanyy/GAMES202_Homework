@@ -8,7 +8,7 @@ Thumbs.db
 *.launch
 .settings/
 *.sublime-workspace
-
+*/build/*
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
