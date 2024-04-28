@@ -9,6 +9,7 @@ Thumbs.db
 .settings/
 *.sublime-workspace
 */build/*
+*/examples/*
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
